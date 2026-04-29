@@ -1,3 +1,4 @@
+//Pentru review : Olteanu Luca
 #include <iostream>
 #include <string>
 #include <memory>
