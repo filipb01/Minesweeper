@@ -11,5 +11,10 @@ add_executable(Minesweeper main.cpp
         Exceptii.h
         Exceptii.cpp
         Jucator.h
-        Jucator.cpp)
+        Jucator.cpp
+        Cod_complet.cpp)
+
+add_executable(
+        Program_compact Cod_complet.cpp
+)
 
