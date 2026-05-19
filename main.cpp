@@ -33,12 +33,12 @@ int main() {
                 char actiune;
 
                 if (!(ss >> r >> c >> actiune)) {
-                    throw EroareComandaInvalida();
+                    throw EroareFormatGresit();
                 }
 
                 std::string restulLiniei;
                 if (ss >> restulLiniei) {
-                    throw EroareComandaInvalida();
+                    throw EroareFormatGresit();
                 }
 
                 int stare = jucator1.actioneaza(joc, r, c, actiune);

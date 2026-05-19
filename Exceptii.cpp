@@ -14,3 +14,6 @@ EroareComandaInvalida::EroareComandaInvalida()
 
 EroareActiuneIlegala::EroareActiuneIlegala()
     : EroareMinesweeper("Eroare: Actiune respinsa. Celula este deja descoperita sau marcata cu steag.") {}
+
+EroareFormatGresit::EroareFormatGresit()
+    : EroareMinesweeper("Eroare: Formatul este incorect,va rugam sa introduceti 2 numere si o litera separate prin spatii."){}

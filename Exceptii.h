@@ -26,4 +26,9 @@ public:
     EroareActiuneIlegala();
 };
 
+class EroareFormatGresit : public EroareMinesweeper {
+public:
+    EroareFormatGresit();
+};
+
 #endif
