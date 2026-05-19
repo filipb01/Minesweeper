@@ -10,7 +10,7 @@ int main() {
     std::string nume;
     std::cin >> nume;
 
-    Jucator jucator1(nume);
+    Jucator<int> jucator1(nume);//int => fara zecimale
     char raspuns;
 
     do {
@@ -65,7 +65,7 @@ int main() {
         std::cout << "\nTABLA FINALA:\n" << joc << "\n";
 
         jucator1.terminaJoc(victorie);
-        Jucator::afiseazaStatistici();
+        Jucator<int>::afiseazaStatistici();
 
         std::cout << "\nVrei sa joci din nou? (Y/N): ";
         std::cin >> raspuns;

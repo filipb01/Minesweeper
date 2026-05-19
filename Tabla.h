@@ -18,7 +18,7 @@ class Tabla {
 
     void fill(int r,int c);
 
-    friend class Jucator;
+    template <typename> friend class Jucator;
 public:
     Tabla(int linii, int coloane, int nrBombe);
     Tabla(const Tabla& t);
