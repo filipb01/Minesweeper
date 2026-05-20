@@ -1,4 +1,5 @@
 #include "Tabla.h"
+#include "CelulaFactory.h"
 #include <random>
 
 int Tabla::getIndex(int r, int c) const {
@@ -22,7 +23,7 @@ void Tabla::plaseazaMine() {
         int c = coloana(gen);
 
         if ((*this)(r,c) == nullptr) {
-            (*this)(r,c) = std::make_shared<CelulaMina>(r,c);
+            (*this)(r,c) = CelulaFactory::creazaCelula(CelulaFactory::Tip::Mina,r,c);
             bombePuse++;
         }
     }
@@ -40,9 +41,9 @@ void Tabla::calculeazaNumere() {
                                ++bombeVecine; //crestem nr de mine vecine
                         }
                 if (bombeVecine == 0)//daca nu am gasit mine
-                    (*this)(r,c) = std::make_shared<CelulaGoala>(r,c);//obiectul devine de tip celula goala
+                    (*this)(r,c) = CelulaFactory::creazaCelula(CelulaFactory::Tip::Goala,r,c);//obiectul devine de tip celula goala
                 else
-                    (*this)(r,c) =std::make_shared<CelulaNumar>(r,c,bombeVecine);//obiectul devine tip celula numar
+                    (*this)(r,c) =CelulaFactory::creazaCelula(CelulaFactory::Tip::Numar,r,c,bombeVecine);//obiectul devine tip celula numar
             }
         }
 }

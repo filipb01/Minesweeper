@@ -9,7 +9,8 @@ protected:
 public:
     Celula(int x,int y);
     virtual ~Celula() = default;
-    virtual std::shared_ptr<Celula> clone() const =0;
+    virtual std::shared_ptr<Celula> clone() const =0;//design pattern prototype
+    //functie folosita in constructorul de copiere al tablei
 
     int dezvaluie();
     void marcheaza();
