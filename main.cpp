@@ -24,7 +24,8 @@ int main() {
 
         while (!gameOver && !victorie) {
             std::cout << "\n" << joc << "\n";
-            std::cout << "Introdu Randul, Coloana si Actiunea (D=Dezvaluie, M=Steag) (ex: 2 3 D): ";
+            LoggerJoc::getInstance().log("Introdu Randul, Coloana si Actiunea (D=Dezvaluie, M=Steag) (ex: 2 3 D): ");
+
 
             std::string linieInput;
             std::getline(std::cin >> std::ws, linieInput);
