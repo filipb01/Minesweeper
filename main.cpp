@@ -4,19 +4,21 @@
 #include "Tabla.h"
 #include "Jucator.h"
 #include "Exceptii.h"
+#include "LoggerJoc.h"
 
 int main() {
     std::cout << "Introdu numele tau: ";
     std::string nume;
     std::cin >> nume;
 
-    Jucator<int> jucator1(nume);//int => fara zecimale
+    Jucator<float> jucator1(nume);//int => fara zecimale | float => cu zecimale
     char raspuns;
 
     do {
         Tabla joc(5, 5, 3);
 
         jucator1.incepeJoc();
+        LoggerJoc::getInstance().log("O noua sesiune de Minesweeper a inceput!");
         bool gameOver = false;
         bool victorie = false;
 
@@ -45,7 +47,7 @@ int main() {
 
                 if (stare == -1) {
                     gameOver = true;
-                    std::cout << "\nBOOM! Ai lovit o mina! Jocul s-a terminat.\n";
+                    LoggerJoc::getInstance().log("Jucatorul a lovit o mina. Game Over.");
                 } else {
                     if (joc.verificaVictorie()) {
                         victorie = true;
@@ -55,24 +57,24 @@ int main() {
 
             }
             catch (const EroareMinesweeper& e) {
-                std::cout << "\n[!] " << e.what() << " Incearca din nou!\n";
+                LoggerJoc::getInstance().logEroare(e.what());
             }
             catch (const std::exception& e) {
-                std::cout << "\nEroare de sistem: " << e.what() << "\n";
+                LoggerJoc::getInstance().logEroare(e.what());
             }
         }
 
         std::cout << "\nTABLA FINALA:\n" << joc << "\n";
 
         jucator1.terminaJoc(victorie);
-        Jucator<int>::afiseazaStatistici();
+        jucator1.afiseazaStatistici();
 
         std::cout << "\nVrei sa joci din nou? (Y/N): ";
         std::cin >> raspuns;
 
     } while (raspuns == 'Y' || raspuns == 'y');
 
-    std::cout << "\nLa revedere, " << nume << "!\n";
+    std::cout << '\n' << jucator1 << "!\n";
 
     return 0;
 }

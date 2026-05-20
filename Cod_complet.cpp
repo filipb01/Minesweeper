@@ -1,4 +1,5 @@
 //Pentru review : Olteanu Luca
+//cod valabil pt proiectul 2
 #include <iostream>
 #include <string>
 #include <memory>

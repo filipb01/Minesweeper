@@ -13,6 +13,7 @@ add_executable(Minesweeper main.cpp
         Jucator.h
         Jucator.cpp
         CelulaFactory.h
+        LoggerJoc.h
 )
 
 add_executable(

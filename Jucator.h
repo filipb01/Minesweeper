@@ -5,6 +5,7 @@
 #include <chrono>
 #include "Tabla.h"
 #include "Exceptii.h"
+#include "LoggerJoc.h"
 #include <iostream>
 
 template <typename T>
@@ -46,6 +47,7 @@ Jucator<T>::Jucator(const std::string& nume) : nume(nume), timpUltimulJoc(0) {}
 template <typename T>
 void Jucator<T>::incepeJoc() {
     timpStart = std::chrono::steady_clock::now();
+    LoggerJoc::getInstance().log("Cronometrul a fost pornit pentru " + nume);
 }
 
 template <typename T>
